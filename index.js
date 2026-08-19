@@ -35,3 +35,11 @@ app.use(async (req, res, next) => {
 app.use("/api", require("./routes/api"));
 
 module.exports = app;
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 3000;
+
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
